@@ -230,27 +230,27 @@ const EEFMSimulator = (function() {
     }
 
     let status = "HEALTHY";
-    let status_color = "#10b981";
+    let status_color = "#387653";
     let severity_desc = "Optimal operating state with negligible wear accumulation.";
 
     if (hi >= 85.0) {
       status = "HEALTHY";
-      status_color = "#10b981";
+      status_color = "#387653";
     } else if (hi >= 70.0) {
       status = "NORMAL_WEAR";
-      status_color = "#06b6d4";
+      status_color = "#777C54";
       severity_desc = "Standard progressive wear within engineering tolerances.";
     } else if (hi >= 50.0) {
       status = "INCIPIENT_FAULT";
-      status_color = "#f59e0b";
+      status_color = "#C18A35";
       severity_desc = "Detectable sub-surface degradation; thermal/vibrational anomaly.";
     } else if (hi >= 30.0) {
       status = "SEVERE_DEGRADATION";
-      status_color = "#f97316";
+      status_color = "#C65D35";
       severity_desc = "Accelerated wear; imminent danger of cascading damage.";
     } else {
       status = "CRITICAL_IMMINENT_FAILURE";
-      status_color = "#ef4444";
+      status_color = "#B8473C";
       severity_desc = "Extreme failure probability; immediate economic and physical hazard.";
     }
 

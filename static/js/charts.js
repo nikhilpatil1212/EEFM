@@ -1,11 +1,12 @@
 /**
  * Interactive Canvas-based Chart Rendering Engine for EEFM Decision Tool.
- * Provides high-DPI rendering, anti-aliased curves, glowing accents, and tooltips.
+ * Theme: Industrial Editorial + Financial Intelligence
+ * Palette: Charcoal (#252722), Burnt Orange (#C65D35), Olive Green (#777C54), Warm Gray (#DEDCD4), Brick Red (#B8473C)
  */
 
 const EEFMCharts = (function() {
 
-  // Helper to setup retina-sharp canvas
+  // Helper to setup high-DPI retina-sharp canvas
   function setupCanvas(canvas) {
     if (!canvas) return null;
     const dpr = window.devicePixelRatio || 1;
@@ -28,13 +29,12 @@ const EEFMCharts = (function() {
     const { ctx, width, height } = setup;
 
     ctx.clearRect(0, 0, width, height);
-
     if (!schedule || schedule.length === 0) return;
 
-    const padLeft = 65;
+    const padLeft = 70;
     const padRight = 30;
-    const padTop = 30;
-    const padBottom = 40;
+    const padTop = 32;
+    const padBottom = 38;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
 
@@ -47,10 +47,10 @@ const EEFMCharts = (function() {
     if (maxVal === 0) maxVal = 100000;
 
     // Draw horizontal grid lines & Y-axis labels
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     const steps = 5;
@@ -73,13 +73,15 @@ const EEFMCharts = (function() {
 
     // X-axis labels
     ctx.textAlign = "center";
+    ctx.fillStyle = "#77796F";
+    ctx.font = "10px 'JetBrains Mono', monospace";
     schedule.forEach((d, i) => {
       const x = getX(i);
       ctx.fillText(`Yr ${d.keep_years}`, x, height - padBottom + 18);
     });
 
     // Helper to draw smooth series
-    function drawSeries(key, color, strokeWidth = 2, dashed = false) {
+    function drawSeries(key, color, strokeWidth = 1.8, dashed = false) {
       ctx.beginPath();
       ctx.strokeStyle = color;
       ctx.lineWidth = strokeWidth;
@@ -95,30 +97,27 @@ const EEFMCharts = (function() {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Draw point markers
+      // Point markers
       schedule.forEach((d, i) => {
         const x = getX(i);
         const y = getY(d[key]);
         ctx.beginPath();
-        ctx.arc(x, y, strokeWidth > 2 ? 4 : 2.5, 0, Math.PI * 2);
+        ctx.arc(x, y, strokeWidth > 2.5 ? 4.5 : 3, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.fill();
-        ctx.strokeStyle = "#070b14";
+        ctx.strokeStyle = "#FFFFFF";
         ctx.lineWidth = 1.5;
         ctx.stroke();
       });
     }
 
-    // Draw individual components
-    drawSeries("capital_recovery_cr", "rgba(59, 130, 246, 0.75)", 1.5, true);  // Blue: CR
-    drawSeries("annualized_om", "rgba(16, 185, 129, 0.75)", 1.5, true);        // Green: O&M
-    drawSeries("annualized_risk", "rgba(239, 68, 68, 0.75)", 1.5, true);      // Red: Risk
+    // Individual component curves (Restrained industrial palette)
+    drawSeries("capital_recovery_cr", "#252722", 1.8, true);   // Charcoal: Capital Recovery
+    drawSeries("annualized_om", "#777C54", 1.8, true);          // Olive Green: O&M
+    drawSeries("annualized_risk", "#B8473C", 1.8, true);        // Brick Red: Risk Cost
 
-    // Draw Total EUAC curve (Dominant Glowing Cyan)
-    ctx.shadowColor = "rgba(0, 242, 254, 0.5)";
-    ctx.shadowBlur = 8;
-    drawSeries("total_euac", "#00f2fe", 3.2, false);
-    ctx.shadowBlur = 0;
+    // Total EUAC curve (Dominant Burnt Orange Accent)
+    drawSeries("total_euac", "#C65D35", 3.0, false);
 
     // Highlight minimum EUAC point
     let minIdx = 0;
@@ -135,18 +134,19 @@ const EEFMCharts = (function() {
 
     // Draw minimum indicator ring
     ctx.beginPath();
-    ctx.arc(optX, optY, 7, 0, Math.PI * 2);
-    ctx.fillStyle = "#00f2fe";
+    ctx.arc(optX, optY, 6.5, 0, Math.PI * 2);
+    ctx.fillStyle = "#C65D35";
     ctx.fill();
     ctx.beginPath();
-    ctx.arc(optX, optY, 11, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(0, 242, 254, 0.6)";
-    ctx.lineWidth = 2;
+    ctx.arc(optX, optY, 10, 0, Math.PI * 2);
+    ctx.strokeStyle = "rgba(198, 93, 53, 0.4)";
+    ctx.lineWidth = 1.8;
     ctx.stroke();
 
-    ctx.fillStyle = "#00f2fe";
-    ctx.font = "bold 10px 'Outfit', sans-serif";
-    ctx.fillText(`Min EUAC: $${minVal.toLocaleString()}`, optX, optY - 14);
+    ctx.fillStyle = "#252722";
+    ctx.font = "bold 10px 'JetBrains Mono', monospace";
+    ctx.textAlign = "center";
+    ctx.fillText(`MIN EUAC: $${minVal.toLocaleString()}`, optX, optY - 14);
   }
 
   // 2. Marginal Cost (Defender) vs Challenger EUAC Chart
@@ -159,10 +159,10 @@ const EEFMCharts = (function() {
     ctx.clearRect(0, 0, width, height);
     if (!schedule || schedule.length === 0) return;
 
-    const padLeft = 65;
+    const padLeft = 70;
     const padRight = 30;
-    const padTop = 30;
-    const padBottom = 40;
+    const padTop = 32;
+    const padBottom = 38;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
 
@@ -170,11 +170,11 @@ const EEFMCharts = (function() {
     maxVal = Math.ceil(maxVal * 1.1 / 10000) * 10000;
     if (maxVal === 0) maxVal = 100000;
 
-    // Grid lines
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    // Grid lines & Y-axis labels
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     const steps = 5;
@@ -195,35 +195,37 @@ const EEFMCharts = (function() {
 
     // X Labels
     ctx.textAlign = "center";
+    ctx.fillStyle = "#77796F";
+    ctx.font = "10px 'JetBrains Mono', monospace";
     schedule.forEach((d, i) => {
       ctx.fillText(`Yr ${d.keep_years}`, getX(i), height - padBottom + 18);
     });
 
-    // Horizontal Challenger EUAC line (Gold / Amber dashed)
+    // Horizontal Challenger EUAC line (Olive Green / Amber benchmark dashed)
     const challY = getY(challengerEUAC);
     ctx.beginPath();
-    ctx.strokeStyle = "#f59e0b";
-    ctx.lineWidth = 2.5;
-    ctx.setLineDash([6, 4]);
+    ctx.strokeStyle = "#777C54";
+    ctx.lineWidth = 2.0;
+    ctx.setLineDash([5, 4]);
     ctx.moveTo(padLeft, challY);
     ctx.lineTo(width - padRight, challY);
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#f59e0b";
+    ctx.fillStyle = "#777C54";
     ctx.font = "bold 10px 'JetBrains Mono', monospace";
     ctx.textAlign = "right";
-    ctx.fillText(`Challenger Min EUAC: $${challengerEUAC.toLocaleString()}`, width - padRight, challY - 8);
+    ctx.fillText(`CHALLENGER MIN EUAC: $${challengerEUAC.toLocaleString()}`, width - padRight, challY - 8);
 
-    // Defender Marginal Cost Line (Cyan rising to Ruby)
+    // Defender Marginal Cost Line (Charcoal rising to Burnt Orange & Brick Red)
     const grad = ctx.createLinearGradient(padLeft, 0, width - padRight, 0);
-    grad.addColorStop(0, "#00f2fe");
-    grad.addColorStop(0.6, "#f59e0b");
-    grad.addColorStop(1, "#ef4444");
+    grad.addColorStop(0, "#252722");
+    grad.addColorStop(0.55, "#C65D35");
+    grad.addColorStop(1, "#B8473C");
 
     ctx.beginPath();
     ctx.strokeStyle = grad;
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2.8;
     schedule.forEach((d, i) => {
       const x = getX(i);
       const y = getY(d.marginal_cost);
@@ -240,9 +242,9 @@ const EEFMCharts = (function() {
 
       ctx.beginPath();
       ctx.arc(x, y, 4.5, 0, Math.PI * 2);
-      ctx.fillStyle = isBreached ? "#ef4444" : "#00f2fe";
+      ctx.fillStyle = isBreached ? "#B8473C" : "#252722";
       ctx.fill();
-      ctx.strokeStyle = "#070b14";
+      ctx.strokeStyle = "#FFFFFF";
       ctx.lineWidth = 2;
       ctx.stroke();
     });
@@ -251,9 +253,8 @@ const EEFMCharts = (function() {
     if (crossoverYear !== null && crossoverYear <= schedule.length) {
       const crossIdx = crossoverYear - 1;
       const crossX = getX(crossIdx);
-      const crossY = getY(schedule[crossIdx].marginal_cost);
 
-      ctx.strokeStyle = "rgba(239, 68, 68, 0.4)";
+      ctx.strokeStyle = "rgba(184, 71, 60, 0.45)";
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
       ctx.moveTo(crossX, padTop);
@@ -261,10 +262,10 @@ const EEFMCharts = (function() {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = "#ef4444";
-      ctx.font = "bold 10px 'Outfit', sans-serif";
+      ctx.fillStyle = "#B8473C";
+      ctx.font = "bold 9px 'JetBrains Mono', monospace";
       ctx.textAlign = "center";
-      ctx.fillText(`REPLACE CROSSOVER`, crossX, padTop - 10);
+      ctx.fillText(`REPLACE CROSSOVER (YR ${crossoverYear})`, crossX, padTop - 10);
     }
   }
 
@@ -278,9 +279,9 @@ const EEFMCharts = (function() {
     ctx.clearRect(0, 0, width, height);
     if (!trajectory || trajectory.length === 0) return;
 
-    const padLeft = 50;
+    const padLeft = 55;
     const padRight = 30;
-    const padTop = 25;
+    const padTop = 28;
     const padBottom = 35;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
@@ -291,10 +292,10 @@ const EEFMCharts = (function() {
     function getY(hi) { return padTop + chartH - (hi / 100.0) * chartH; }
 
     // Grid lines for HI (0 to 100%)
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     [0, 20, 50, 75, 100].forEach(hi => {
@@ -306,10 +307,10 @@ const EEFMCharts = (function() {
       ctx.fillText(`${hi}%`, padLeft - 8, y + 3);
     });
 
-    // Critical Threshold Line at 20%
+    // Critical Threshold Line at 20% (Brick Red)
     const threshY = getY(failureThreshold);
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(239, 68, 68, 0.7)";
+    ctx.strokeStyle = "#B8473C";
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
     ctx.moveTo(padLeft, threshY);
@@ -317,10 +318,10 @@ const EEFMCharts = (function() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#B8473C";
     ctx.textAlign = "right";
-    ctx.font = "9px 'JetBrains Mono', monospace";
-    ctx.fillText("Failure Boundary (20%)", width - padRight, threshY - 6);
+    ctx.font = "bold 9px 'JetBrains Mono', monospace";
+    ctx.fillText("CRITICAL FAILURE LIMIT (20%)", width - padRight, threshY - 6);
 
     // Draw shaded confidence cone (P10 to P90)
     ctx.beginPath();
@@ -337,12 +338,12 @@ const EEFMCharts = (function() {
       ctx.lineTo(x, y);
     }
     ctx.closePath();
-    ctx.fillStyle = "rgba(0, 242, 254, 0.12)";
+    ctx.fillStyle = "rgba(198, 93, 53, 0.09)";
     ctx.fill();
 
-    // Expected Trajectory Line (P50)
+    // Expected Trajectory Line (P50 in Burnt Orange)
     ctx.beginPath();
-    ctx.strokeStyle = "#00f2fe";
+    ctx.strokeStyle = "#C65D35";
     ctx.lineWidth = 2.5;
     trajectory.forEach((d, i) => {
       const x = getX(d.month_offset);
@@ -352,9 +353,22 @@ const EEFMCharts = (function() {
     });
     ctx.stroke();
 
+    // Point markers on P50
+    trajectory.forEach((d, i) => {
+      if (i % 2 === 0 || i === trajectory.length - 1) {
+        const x = getX(d.month_offset);
+        const y = getY(d.hi_p50);
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = "#C65D35";
+        ctx.fill();
+      }
+    });
+
     // X Axis Months
     ctx.textAlign = "center";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
+    ctx.font = "10px 'JetBrains Mono', monospace";
     trajectory.forEach((d, i) => {
       if (i % 2 === 0 || i === trajectory.length - 1) {
         ctx.fillText(`+${d.month_offset}m`, getX(d.month_offset), height - padBottom + 16);
@@ -371,9 +385,9 @@ const EEFMCharts = (function() {
 
     ctx.clearRect(0, 0, width, height);
 
-    const padLeft = 65;
-    const padRight = 20;
-    const padTop = 25;
+    const padLeft = 70;
+    const padRight = 24;
+    const padTop = 28;
     const padBottom = 35;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
@@ -386,11 +400,11 @@ const EEFMCharts = (function() {
     maxCost = Math.ceil(maxCost * 1.2 / 20000) * 20000;
     if (maxCost === 0) maxCost = 100000;
 
-    // Grid
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    // Grid lines & labels
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     for (let i = 0; i <= 4; i++) {
@@ -405,33 +419,34 @@ const EEFMCharts = (function() {
     }
 
     const groupW = chartW / years;
-    const barW = Math.max(8, groupW * 0.35);
+    const barW = Math.max(8, groupW * 0.32);
 
     ctx.textAlign = "center";
+    ctx.font = "10px 'JetBrains Mono', monospace";
 
     for (let i = 0; i < years; i++) {
       const groupX = padLeft + i * groupW + groupW / 2;
       
-      // Conventional Bar (Muted Red/Slate)
+      // Conventional Bar (Muted Brick Red)
       const convCost = convSchedule[i].total_annual_cost;
       const convH = (convCost / maxCost) * chartH;
       const convX = groupX - barW - 2;
       const convY = padTop + chartH - convH;
 
-      ctx.fillStyle = "rgba(239, 68, 68, 0.65)";
+      ctx.fillStyle = "#B8473C";
       ctx.fillRect(convX, convY, barW, convH);
 
-      // AI-PdM Bar (Cyan/Emerald)
+      // AI-PdM Bar (Olive Green / Charcoal)
       const pdmCost = pdmSchedule[i].om_cost + pdmSchedule[i].risk_cost * 0.2;
       const pdmH = (pdmCost / maxCost) * chartH;
       const pdmX = groupX + 2;
       const pdmY = padTop + chartH - pdmH;
 
-      ctx.fillStyle = "#00f2fe";
+      ctx.fillStyle = "#777C54";
       ctx.fillRect(pdmX, pdmY, barW, pdmH);
 
-      // Label
-      ctx.fillStyle = "#64748b";
+      // Year Label
+      ctx.fillStyle = "#77796F";
       ctx.fillText(`Y${i + 1}`, groupX, height - padBottom + 16);
     }
   }

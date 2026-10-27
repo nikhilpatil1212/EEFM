@@ -4,114 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AI-Driven Asset Replacement Decision Support Tool for Predictive Maintenance and Engineering Economics (EEFM). Compares condition-based EUAC models against conventional fixed depreciation schedules.">
-  <title>AI Asset Replacement Decision Support System | EEFM Prognostics</title>
+  <!-- Industrial Asset Monogram Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23252722'%3E%3Crect width='24' height='24' rx='4' fill='%23252722'/%3E%3Cpath d='M4 18h16M4 18V6M4 18l5-6 4 4 7-8' fill='none' stroke='%23C65D35' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='8' r='2' fill='%23C65D35'/%3E%3C/svg%3E">
+  <title>EEFM Asset Replacement Intelligence | Industrial Decision Support</title>
 
-  <!-- Google Web Fonts -->
+  <!-- Google Web Fonts: Inter (UI/Sans), Fraunces (Editorial), JetBrains Mono (Data/Math) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheet -->
     <!-- Embedded Core Design System Stylesheet -->
   <style>
 /* =====================================================================
-   AI ASSET REPLACEMENT DECISION SUPPORT SYSTEM - DESIGN SYSTEM
-   Theme: Industrial Cyber-Aero / Glassmorphism Dark Mode
-   Typography: Outfit (Headings), Inter (UI), JetBrains Mono (Telemetry/Math)
+   AI ASSET REPLACEMENT DECISION SUPPORT SYSTEM (EEFM)
+   Design System: Industrial Editorial + Financial Intelligence
+   Palette: Warm Off-White, Charcoal, Burnt Orange, Olive Green
+   Typography: Inter (UI/Sans), Fraunces (Editorial), JetBrains Mono (Financial/Telemetry)
    ===================================================================== */
 
 :root {
-  /* Color Palette */
-  --bg-dark: #070b14;
-  --bg-card: rgba(15, 23, 42, 0.75);
-  --bg-card-hover: rgba(22, 36, 65, 0.85);
-  --bg-surface: #0b1120;
-  --bg-elevated: #111a2e;
+  /* Primary Surfaces */
+  --bg-primary: #F5F3EE;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FAF9F5;
+  --bg-surface: #FAF9F5;
+  --bg-elevated: #EFECE4;
+  --bg-subtle: #E8E5DC;
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(0, 242, 254, 0.5);
-  --border-glow: rgba(0, 242, 254, 0.25);
+  /* Dark Surfaces (Header, Accents) */
+  --bg-dark: #252722;
+  --bg-dark-header: #1E201B;
+  --bg-dark-surface: #2B2E27;
+  --bg-dark-border: #3A3D34;
 
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  /* Typography Colors */
+  --text-main: #252722;
+  --text-muted: #77796F;
+  --text-dim: #999B90;
+  --text-light: #F5F3EE;
+  --text-light-muted: #A8ABA0;
 
-  /* Accent Colors */
-  --cyan-primary: #00f2fe;
-  --cyan-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-  --blue-primary: #3b82f6;
-  --emerald-success: #10b981;
-  --emerald-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  --amber-warning: #f59e0b;
-  --amber-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  --rose-danger: #ef4444;
-  --rose-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  --violet-accent: #8b5cf6;
+  /* Editorial & Industrial Brand Accents */
+  --accent-orange: #C65D35;
+  --accent-orange-hover: #B14F29;
+  --accent-orange-subtle: rgba(198, 93, 53, 0.08);
+  --accent-orange-border: rgba(198, 93, 53, 0.28);
 
-  /* Elevation & Shadows */
-  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --shadow-elevated: 0 10px 35px -5px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 254, 0.1);
-  --shadow-glow-cyan: 0 0 25px rgba(0, 242, 254, 0.35);
-  --shadow-glow-rose: 0 0 25px rgba(239, 68, 68, 0.35);
-  --shadow-glow-amber: 0 0 25px rgba(245, 158, 11, 0.35);
+  --accent-olive: #777C54;
+  --accent-olive-hover: #676C46;
+  --accent-olive-subtle: rgba(119, 124, 84, 0.10);
+  --accent-olive-border: rgba(119, 124, 84, 0.25);
 
-  /* Geometry */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
-  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Status & Financial Indicators */
+  --status-positive: #387653;
+  --status-positive-subtle: rgba(56, 118, 83, 0.09);
+  --status-positive-border: rgba(56, 118, 83, 0.25);
+
+  --status-warning: #C18A35;
+  --status-warning-subtle: rgba(193, 138, 53, 0.10);
+  --status-warning-border: rgba(193, 138, 53, 0.25);
+
+  --status-critical: #B8473C;
+  --status-critical-subtle: rgba(184, 71, 60, 0.09);
+  --status-critical-border: rgba(184, 71, 60, 0.25);
+
+  /* Borders & Dividers */
+  --border-subtle: #DEDCD4;
+  --border-light: #EBE9E1;
+  --border-focus: #C65D35;
+  --border-dark: #3A3D34;
+
+  /* Geometry & Radii (Modest, Architectural) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Typography Scales */
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* Architectural Restrained Shadows (No dramatic blurs) */
+  --shadow-subtle: 0 1px 2px rgba(37, 39, 34, 0.04);
+  --shadow-card: 0 1px 3px rgba(37, 39, 34, 0.05), 0 1px 2px rgba(37, 39, 34, 0.03);
+  --shadow-elevated: 0 4px 14px rgba(37, 39, 34, 0.07), 0 1px 3px rgba(37, 39, 34, 0.04);
+  --shadow-modal: 0 12px 36px rgba(37, 39, 34, 0.18), 0 2px 8px rgba(37, 39, 34, 0.08);
+
+  /* Compatibility Aliases for Scripts */
+  --cyan-primary: var(--accent-orange);
+  --emerald-success: var(--status-positive);
+  --amber-warning: var(--status-warning);
+  --rose-danger: var(--status-critical);
+  --violet-accent: var(--accent-olive);
 }
 
-/* Base Reset & Typography */
+/* =====================================================================
+   Base Reset & Global Styles
+   ===================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  font-family: var(--font-body);
-  line-height: 1.5;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 15% 20%, rgba(0, 242, 254, 0.05) 0%, transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glassmorphism Panels */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Subtle architectural drafting grid */
+  background-image: 
+    linear-gradient(to right, rgba(222, 220, 212, 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(222, 220, 212, 0.45) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Structured Solid White Cards (Replaces generic glassmorphism) */
 .glass-panel {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-subtle);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glass-panel:hover {
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: #CDC9BD;
+  box-shadow: var(--shadow-elevated);
 }
 
-/* App Header */
+/* =====================================================================
+   Top Navigation Header (Deep Charcoal Industrial Header)
+   ===================================================================== */
 .app-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(7, 11, 20, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 14px 28px;
+  background: var(--bg-dark-header);
+  border-bottom: 1px solid var(--bg-dark-border);
+  padding: 12px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
 }
 
 .header-content {
@@ -120,7 +163,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
 }
 
 .brand-section {
@@ -130,69 +173,77 @@ body {
 }
 
 .brand-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background: var(--cyan-gradient);
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-orange);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(198, 93, 53, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .brand-badge svg {
-  width: 24px;
-  height: 24px;
-  fill: #070b14;
+  width: 22px;
+  height: 22px;
+  stroke: #FFFFFF;
+  fill: none;
 }
 
 .brand-title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 30%, var(--cyan-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.015em;
+  color: var(--text-light);
+  line-height: 1.2;
 }
 
 .brand-subtitle {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  font-size: 0.74rem;
+  color: var(--text-light-muted);
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.brand-subtitle span:first-child {
+  letter-spacing: 0.02em;
 }
 
 .status-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   padding: 3px 10px;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: var(--emerald-success);
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 600;
+  background: rgba(119, 124, 84, 0.18);
+  border: 1px solid rgba(119, 124, 84, 0.35);
+  color: #B5BB8E;
+  border-radius: var(--radius-xs);
+  font-size: 0.68rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
 }
 
 .pulse-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background-color: var(--emerald-success);
-  box-shadow: 0 0 8px var(--emerald-success);
-  animation: pulseAnimation 2s infinite;
+  background-color: #8EBF9F;
+  box-shadow: 0 0 6px rgba(142, 191, 159, 0.6);
+  animation: pulseDot 2.5s infinite;
 }
 
-@keyframes pulseAnimation {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px var(--emerald-success); }
-  100% { transform: scale(0.95); opacity: 0.8; }
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
 }
 
 .header-actions {
@@ -201,109 +252,150 @@ body {
   gap: 12px;
 }
 
-/* Buttons */
+/* =====================================================================
+   Buttons & Interactive Controls
+   ===================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 9px 18px;
-  font-size: 0.85rem;
+  padding: 8px 16px;
+  font-size: 0.82rem;
   font-weight: 600;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
   text-decoration: none;
   font-family: var(--font-body);
+  letter-spacing: 0.01em;
 }
 
+.btn:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 2px;
+}
+
+/* Primary Button (Burnt Orange or Charcoal) */
 .btn-primary {
-  background: var(--cyan-gradient);
-  color: #040810;
-  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  background: var(--accent-orange);
+  color: #FFFFFF;
+  border-color: #B14F29;
+  box-shadow: 0 1px 3px rgba(198, 93, 53, 0.25);
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+  background: var(--accent-orange-hover);
+  border-color: #9D421F;
 }
 
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* Secondary Button (Neutral Surface with subtle border) */
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-main);
-  border-color: var(--border-subtle);
+  background: var(--bg-dark-surface);
+  color: var(--text-light);
+  border-color: var(--bg-dark-border);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: #363930;
+  border-color: #4D5046;
+  color: #FFFFFF;
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--text-muted);
+  color: var(--text-light-muted);
 }
 
 .btn-ghost:hover {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-/* Main Layout Grid */
+/* Main Container */
 .main-container {
   max-width: 1720px;
   margin: 24px auto;
-  padding: 0 24px 60px 24px;
+  padding: 0 32px 64px 32px;
 }
 
-/* Control Bar: Asset Selector & Scenario Presets */
+/* =====================================================================
+   Control Bar: Asset Archetype Selector & Condition Scenarios
+   ===================================================================== */
 .control-bar {
   display: grid;
-  grid-template-columns: 1.4fr 1.6fr;
+  grid-template-columns: 1.35fr 1.65fr;
   gap: 20px;
   margin-bottom: 24px;
 }
 
 .asset-selection-card,
 .scenario-selection-card {
-  padding: 18px 24px;
+  padding: 16px 22px;
 }
 
 .control-label {
-  font-size: 0.76rem;
-  font-weight: 600;
+  font-size: 0.70rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
+}
+
+.control-label svg {
+  color: var(--accent-orange);
 }
 
 .custom-select-wrap {
   position: relative;
 }
 
+.custom-select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--text-muted);
+  pointer-events: none;
+}
+
 .custom-select {
   width: 100%;
-  background: var(--bg-surface);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   color: var(--text-main);
-  font-size: 0.95rem;
+  font-size: 0.90rem;
   font-weight: 600;
-  padding: 12px 16px;
+  padding: 10px 38px 10px 14px;
   cursor: pointer;
   appearance: none;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.custom-select:hover {
+  border-color: #BDB9AC;
 }
 
 .custom-select:focus {
   outline: none;
-  border-color: var(--cyan-primary);
-  box-shadow: 0 0 0 2px var(--border-glow);
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(198, 93, 53, 0.12);
 }
 
 .scenario-chips {
@@ -314,55 +406,72 @@ body {
 
 .chip-btn {
   padding: 8px 14px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
+  color: var(--text-main);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
 }
 
 .chip-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-main);
+  background: var(--bg-elevated);
+  border-color: #C5C2B6;
 }
 
 .chip-btn.active {
-  background: rgba(0, 242, 254, 0.15);
-  border-color: var(--cyan-primary);
-  color: var(--cyan-primary);
-  box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+  background: var(--bg-dark);
+  border-color: var(--bg-dark);
+  color: var(--text-light);
+  box-shadow: 0 1px 4px rgba(37, 39, 34, 0.18);
+  position: relative;
 }
 
-/* Executive Decision Hero Section */
+.chip-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--accent-orange);
+  border-radius: 1px;
+}
+
+/* =====================================================================
+   Executive Decision Hero Section (Asymmetrical Editorial Grid)
+   ===================================================================== */
 .decision-hero {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1.05fr 1.05fr;
   gap: 20px;
   margin-bottom: 24px;
 }
 
+/* Recommendation Advisory Card */
 .recommendation-card {
   padding: 24px;
   position: relative;
-  overflow: hidden;
-  border-left: 5px solid var(--cyan-primary);
+  border-left: 4px solid var(--accent-orange);
+  background: #FFFFFF;
 }
 
-.recommendation-card.critical {
-  border-left-color: var(--rose-danger);
-  box-shadow: var(--shadow-glow-rose);
+.recommendation-card.critical,
+.recommendation-card.emergency {
+  border-left-color: var(--status-critical);
 }
 
-.recommendation-card.high {
-  border-left-color: var(--amber-warning);
-  box-shadow: var(--shadow-glow-amber);
+.recommendation-card.high,
+.recommendation-card.moderate {
+  border-left-color: var(--accent-orange);
 }
 
-.recommendation-card.normal {
-  border-left-color: var(--emerald-success);
+.recommendation-card.normal,
+.recommendation-card.low {
+  border-left-color: var(--status-positive);
 }
 
 .card-badge-row {
@@ -372,46 +481,67 @@ body {
   margin-bottom: 12px;
 }
 
+#decision-urgency-badge {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: var(--radius-xs);
+  background: var(--status-warning-subtle) !important;
+  color: var(--status-warning) !important;
+  border: 1px solid var(--status-warning-border) !important;
+}
+
 .decision-action-title {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  margin-bottom: 6px;
-  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 1.60rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  color: var(--text-main);
 }
 
 .decision-timeline {
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--cyan-primary);
+  color: var(--accent-orange);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
+  letter-spacing: -0.01em;
+}
+
+.decision-timeline svg {
+  color: var(--accent-orange);
+  stroke-width: 2.2;
 }
 
 .decision-rationale {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.58;
 }
 
 /* Health Index Dial Card */
 .health-meter-card {
-  padding: 24px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
+  background: #FFFFFF;
 }
 
 .meter-wrapper {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 136px;
+  height: 136px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -426,18 +556,18 @@ body {
 
 .meter-bg-circle {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 10;
+  stroke: var(--border-light);
+  stroke-width: 9;
 }
 
 .meter-val-circle {
   fill: none;
-  stroke: var(--cyan-primary);
-  stroke-width: 10;
-  stroke-linecap: round;
+  stroke: var(--accent-orange);
+  stroke-width: 9;
+  stroke-linecap: square;
   stroke-dasharray: 377;
   stroke-dashoffset: 60;
-  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s ease;
 }
 
 .meter-text-center {
@@ -448,46 +578,60 @@ body {
 }
 
 .hi-number {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
   line-height: 1;
+  color: var(--text-main);
 }
 
 .hi-percent {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
 }
 
 .meter-status-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   margin-top: 4px;
 }
 
-/* Economic Metrics Card */
+#hi-severity-desc {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  max-width: 240px;
+  line-height: 1.4;
+}
+
+/* Economic Metrics & Financial KPIs Card */
 .economic-kpis-card {
-  padding: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #FFFFFF;
 }
 
 .kpi-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 12px;
   height: 100%;
 }
 
 .kpi-item {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-surface);
   padding: 12px 14px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
@@ -495,40 +639,42 @@ body {
 }
 
 .kpi-label {
-  font-size: 0.72rem;
-  color: var(--text-dim);
-  font-weight: 600;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
+  letter-spacing: 0.07em;
+  margin-bottom: 3px;
 }
 
 .kpi-value {
   font-family: var(--font-mono);
-  font-size: 1.35rem;
+  font-size: 1.30rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
 }
 
-.kpi-value.highlight-emerald {
-  color: var(--emerald-success);
+.kpi-value.highlight-emerald,
+#kpi-savings {
+  color: var(--status-positive) !important;
 }
 
-.kpi-value.highlight-rose {
-  color: var(--rose-danger);
-}
-
-.kpi-value.highlight-cyan {
-  color: var(--cyan-primary);
+.kpi-value.highlight-cyan,
+#kpi-rul {
+  color: var(--accent-orange) !important;
 }
 
 .kpi-meta {
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.70rem;
+  color: var(--text-dim);
   margin-top: 2px;
+  font-family: var(--font-body);
 }
 
-/* Workspace Multi-Tab Section */
+/* =====================================================================
+   Workspace Multi-Tab Navigation & Layout
+   ===================================================================== */
 .workspace-tabs-container {
   margin-bottom: 24px;
 }
@@ -536,35 +682,46 @@ body {
 .tab-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 12px;
-  margin-bottom: 20px;
+  padding-bottom: 0;
+  margin-bottom: 24px;
+  overflow-x: auto;
 }
 
 .tab-btn {
   background: transparent;
   border: none;
+  border-bottom: 2px solid transparent;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  padding: 8px 18px;
-  border-radius: var(--radius-md);
+  padding: 11px 18px;
+  border-radius: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   display: flex;
   align-items: center;
   gap: 8px;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+.tab-btn svg {
+  stroke-width: 2;
+  color: inherit;
 }
 
 .tab-btn:hover {
   color: var(--text-main);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(222, 220, 212, 0.25);
 }
 
 .tab-btn.active {
-  color: var(--cyan-primary);
-  background: rgba(0, 242, 254, 0.1);
+  color: var(--text-main);
+  border-bottom: 2px solid var(--accent-orange);
+  background: transparent;
+  font-weight: 700;
 }
 
 .tab-pane {
@@ -573,18 +730,20 @@ body {
 
 .tab-pane.active {
   display: block;
-  animation: fadeIn 0.3s ease;
+  animation: fadeInPane 0.25s ease-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tab 1: Economic Replacement Analysis (EUAC, Marginal Cost) */
+/* =====================================================================
+   Tab 1: Economic Replacement Analysis (EUAC & Marginal Cost)
+   ===================================================================== */
 .charts-grid-2col {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 20px;
   margin-bottom: 24px;
 }
@@ -592,6 +751,7 @@ body {
 .chart-card {
   padding: 22px;
   position: relative;
+  background: #FFFFFF;
 }
 
 .chart-header {
@@ -599,23 +759,31 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .chart-title {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--text-main);
+}
+
+.chart-title svg {
+  color: var(--accent-orange);
 }
 
 .chart-legend {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
+  font-family: var(--font-mono);
 }
 
 .legend-item {
@@ -625,15 +793,15 @@ body {
 }
 
 .legend-color {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-xs);
 }
 
 .canvas-container {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 290px;
 }
 
 canvas {
@@ -642,10 +810,11 @@ canvas {
   display: block;
 }
 
-/* Financial Comparison Table */
+/* Financial Comparison Schedule Table */
 .table-card {
   padding: 22px;
   margin-bottom: 24px;
+  background: #FFFFFF;
 }
 
 .table-responsive {
@@ -656,129 +825,145 @@ canvas {
 .eefm-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   text-align: left;
 }
 
 .eefm-table th {
   padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-surface);
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
   border-bottom: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-heading);
 }
 
 .eefm-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-light);
   font-family: var(--font-mono);
   color: var(--text-main);
+  font-size: 0.80rem;
 }
 
 .eefm-table tr:hover td {
-  background: rgba(0, 242, 254, 0.03);
+  background: var(--bg-surface);
 }
 
+/* Replacement Crossover Highlight Row */
 .eefm-table tr.highlight-replace-row td {
-  background: rgba(245, 158, 11, 0.12);
-  border-top: 1px solid rgba(245, 158, 11, 0.4);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.4);
+  background: rgba(198, 93, 53, 0.08);
+  border-top: 1px solid rgba(198, 93, 53, 0.35);
+  border-bottom: 1px solid rgba(198, 93, 53, 0.35);
+  color: var(--accent-orange-hover);
+  font-weight: 600;
 }
 
 .status-badge-inline {
   display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  font-size: 0.68rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
 }
 
 .status-badge-inline.keep {
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--emerald-success);
+  background: var(--status-positive-subtle);
+  color: var(--status-positive);
+  border: 1px solid var(--status-positive-border);
 }
 
 .status-badge-inline.replace {
-  background: rgba(239, 68, 68, 0.2);
-  color: var(--rose-danger);
+  background: var(--status-critical-subtle);
+  color: var(--status-critical);
+  border: 1px solid var(--status-critical-border);
 }
 
-/* Tab 2: Live Telemetry & Degradation Sandbox */
+/* =====================================================================
+   Tab 2: AI Prognostics & Telemetry Sandbox
+   ===================================================================== */
 .telemetry-layout {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.25fr 0.75fr;
   gap: 20px;
 }
 
 .sensor-gauges-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
 }
 
 .sensor-gauge-item {
-  background: var(--bg-surface);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  transition: all 0.2s ease;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .sensor-gauge-item:hover {
-  border-color: rgba(0, 242, 254, 0.3);
+  border-color: #BDB9AC;
+  box-shadow: var(--shadow-subtle);
 }
 
 .sensor-name-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .sensor-name {
-  font-size: 0.82rem;
+  font-size: 0.80rem;
   font-weight: 600;
   color: var(--text-main);
 }
 
 .sensor-category {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: var(--text-dim);
   text-transform: uppercase;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
 }
 
 .sensor-reading-row {
   display: flex;
   align-items: baseline;
-  gap: 6px;
-  margin-bottom: 10px;
+  gap: 5px;
+  margin-bottom: 8px;
 }
 
 .sensor-value-live {
   font-family: var(--font-mono);
-  font-size: 1.6rem;
+  font-size: 1.50rem;
   font-weight: 700;
-  color: var(--cyan-primary);
+  color: var(--accent-orange);
 }
 
 .sensor-unit {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 
 .slider-container {
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .sensor-slider {
   width: 100%;
   -webkit-appearance: none;
   height: 5px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xs);
+  background: var(--border-subtle);
   outline: none;
   cursor: pointer;
 }
@@ -787,21 +972,32 @@ canvas {
   -webkit-appearance: none;
   width: 15px;
   height: 15px;
-  border-radius: 50%;
-  background: var(--cyan-primary);
+  border-radius: var(--radius-xs);
+  background: var(--accent-orange);
   cursor: pointer;
-  box-shadow: 0 0 10px var(--cyan-primary);
+  box-shadow: 0 1px 3px rgba(37, 39, 34, 0.25);
+  border: 1px solid #FFFFFF;
   transition: transform 0.1s;
 }
 
 .sensor-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  background: var(--accent-orange-hover);
+}
+
+.sensor-slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: var(--radius-xs);
+  background: var(--accent-orange);
+  cursor: pointer;
+  border: 1px solid #FFFFFF;
 }
 
 .sensor-threshold-scale {
   display: flex;
   justify-content: space-between;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   color: var(--text-dim);
   margin-top: 4px;
   font-family: var(--font-mono);
@@ -810,95 +1006,79 @@ canvas {
 /* Feature Attribution (XAI) Waterfall */
 .xai-card {
   padding: 22px;
+  background: #FFFFFF;
 }
 
 .attribution-bar-item {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .attribution-header {
   display: flex;
   justify-content: space-between;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   margin-bottom: 4px;
+  color: var(--text-main);
+  font-weight: 500;
 }
 
 .attribution-bar-track {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 4px;
+  height: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
   overflow: hidden;
 }
 
 .attribution-bar-fill {
   height: 100%;
-  border-radius: 4px;
-  background: var(--cyan-gradient);
-  transition: width 0.5s ease;
+  border-radius: var(--radius-xs);
+  background: var(--accent-olive);
+  transition: width 0.4s ease;
 }
 
-/* Tab 3: What-If Sensitivity & Economics Sandbox */
-.sensitivity-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.param-slider-group {
-  margin-bottom: 20px;
-}
-
-.slider-label-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.slider-readout {
-  font-family: var(--font-mono);
-  color: var(--cyan-primary);
-}
-
-/* Comparison Matrix Cards (Conventional vs AI) */
+/* =====================================================================
+   Tab 3: Conventional vs. AI-PdM Policy Analysis
+   ===================================================================== */
 .comparison-matrix-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 20px;
   margin-bottom: 24px;
 }
 
 .policy-card {
-  padding: 24px;
-  border-radius: var(--radius-lg);
+  padding: 22px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
+  background: #FFFFFF;
 }
 
 .policy-card.conventional {
-  background: rgba(30, 41, 59, 0.5);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--bg-surface);
+  border-left: 4px solid var(--status-critical);
 }
 
 .policy-card.pdm-ai {
-  background: rgba(14, 30, 56, 0.65);
-  border-color: rgba(0, 242, 254, 0.35);
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.08);
+  background: #FFFFFF;
+  border-left: 4px solid var(--accent-orange);
+  box-shadow: var(--shadow-card);
 }
 
 .policy-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .policy-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.10rem;
   font-weight: 700;
+  color: var(--text-main);
 }
 
 .feature-list {
@@ -906,12 +1086,13 @@ canvas {
 }
 
 .feature-list li {
-  font-size: 0.86rem;
-  color: var(--text-muted);
+  font-size: 0.84rem;
+  color: var(--text-main);
   margin-bottom: 10px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  line-height: 1.5;
 }
 
 .feature-list li svg {
@@ -919,13 +1100,45 @@ canvas {
   margin-top: 3px;
 }
 
-/* Modals */
+/* =====================================================================
+   Tab 4: What-If Sensitivity & Economics Sandbox
+   ===================================================================== */
+.sensitivity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.param-slider-group {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.slider-readout {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-orange);
+}
+
+/* =====================================================================
+   Modals & Dialogs
+   ===================================================================== */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(4, 7, 13, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(30, 32, 27, 0.65);
   z-index: 1000;
   display: none;
   align-items: center;
@@ -935,20 +1148,26 @@ canvas {
 
 .modal-backdrop.open {
   display: flex;
-  animation: fadeIn 0.2s ease;
+  animation: fadeInModal 0.18s ease-out;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal-dialog {
-  background: var(--bg-surface);
+  background: #FFFFFF;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-md);
   max-width: 820px;
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
-  box-shadow: var(--shadow-elevated);
+  box-shadow: var(--shadow-modal);
   padding: 32px;
   position: relative;
+  color: var(--text-main);
 }
 
 .modal-close-btn {
@@ -956,35 +1175,68 @@ canvas {
   top: 20px;
   right: 20px;
   background: transparent;
-  border: none;
+  border: 1px solid var(--border-subtle);
   color: var(--text-muted);
   cursor: pointer;
-  padding: 6px;
+  padding: 5px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
 }
 
 .modal-close-btn:hover {
-  color: #fff;
+  color: var(--text-main);
+  background: var(--bg-surface);
+  border-color: #BDB9AC;
 }
 
 .modal-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-serif);
   font-size: 1.45rem;
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 6px;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
 }
 
 .formula-box {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  margin: 14px 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin: 12px 0;
   font-family: var(--font-mono);
-  font-size: 0.88rem;
-  color: var(--cyan-primary);
+  font-size: 0.84rem;
+  color: var(--accent-orange);
+  line-height: 1.6;
 }
 
-/* Responsive adjustments */
+/* =====================================================================
+   Scrollbars
+   ===================================================================== */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CDC9BD;
+  border-radius: var(--radius-xs);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AAA699;
+}
+
+/* =====================================================================
+   Responsive Adjustments
+   ===================================================================== */
 @media (max-width: 1200px) {
   .decision-hero {
     grid-template-columns: 1fr;
@@ -1006,6 +1258,26 @@ canvas {
   }
 }
 
+@media (max-width: 768px) {
+  .app-header {
+    padding: 12px 16px;
+  }
+  .main-container {
+    padding: 0 16px 40px 16px;
+  }
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/static/css/style.css">
@@ -1017,17 +1289,19 @@ canvas {
   <header class="app-header">
     <div class="header-content">
       <div class="brand-section">
-        <div class="brand-badge" id="brand-logo-badge">
-          <svg width="24" height="24" viewBox="0 0 24 24" style="width:24px; height:24px; max-width:24px; max-height:24px; display:block;">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#070b14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="brand-badge" id="brand-logo-badge" title="EEFM Asset Replacement Intelligence">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18"></path>
+            <path d="m19 9-5 5-4-4-3 3"></path>
+            <circle cx="19" cy="9" r="1.5" fill="#FFFFFF"></circle>
           </svg>
         </div>
         <div>
-          <h1 class="brand-title">AI Asset Replacement Decision Support System</h1>
+          <h1 class="brand-title">EEFM Asset Replacement Intelligence</h1>
           <div class="brand-subtitle">
-            <span>Engineering Economics &amp; Financial Management (EEFM)</span>
+            <span>Industrial Engineering Economics &amp; Predictive Lifecycle Optimization</span>
             <span class="status-pill">
-              <span class="pulse-dot"></span> AI PdM Active
+              <span class="pulse-dot"></span> Telemetry Active
             </span>
           </div>
         </div>
@@ -1035,20 +1309,20 @@ canvas {
 
       <div class="header-actions">
         <button class="btn btn-secondary" id="btn-open-math">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
           </svg>
-          EEFM Formulas
+          EEFM Formulations
         </button>
 
         <button class="btn btn-primary" id="btn-export-report">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          Export Audit Report
+          Export Audit Dossier
         </button>
       </div>
     </div>
@@ -1103,7 +1377,7 @@ canvas {
       <div class="glass-panel recommendation-card" id="recommendation-card">
         <div class="card-badge-row">
           <span class="control-label" style="margin-bottom:0">Optimal Economic Advisory</span>
-          <span class="status-pill" id="decision-urgency-badge" style="background: rgba(245,158,11,0.15); color: var(--amber-warning); border-color: rgba(245,158,11,0.3)">
+          <span class="status-pill" id="decision-urgency-badge">
             MODERATE
           </span>
         </div>
@@ -1120,8 +1394,8 @@ canvas {
       <div class="glass-panel health-meter-card">
         <div class="meter-wrapper">
           <svg class="meter-svg" width="140" height="140" viewBox="0 0 140 140" style="width:140px; height:140px; max-width:140px; max-height:140px;">
-            <circle class="meter-bg-circle" cx="70" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="10"></circle>
-            <circle class="meter-val-circle" id="meter-val-circle" cx="70" cy="70" r="60" fill="none" stroke="#00f2fe" stroke-width="10" stroke-linecap="round"></circle>
+            <circle class="meter-bg-circle" cx="70" cy="70" r="60" fill="none" stroke="var(--border-light)" stroke-width="9"></circle>
+            <circle class="meter-val-circle" id="meter-val-circle" cx="70" cy="70" r="60" fill="none" stroke="var(--accent-orange)" stroke-width="9" stroke-linecap="square"></circle>
           </svg>
           <div class="meter-text-center">
             <span class="hi-number" id="hi-number">72.4</span>
@@ -1209,17 +1483,17 @@ canvas {
           <div class="glass-panel chart-card">
             <div class="chart-header">
               <div class="chart-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2">
                   <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                   <polyline points="17 6 23 6 23 12"></polyline>
                 </svg>
                 Equivalent Uniform Annual Cost (EUAC) Curves
               </div>
               <div class="chart-legend">
-                <span class="legend-item"><span class="legend-color" style="background:#00f2fe"></span> Total EUAC</span>
-                <span class="legend-item"><span class="legend-color" style="background:#3b82f6"></span> Capital Rec. (CR)</span>
-                <span class="legend-item"><span class="legend-color" style="background:#10b981"></span> O&amp;M</span>
-                <span class="legend-item"><span class="legend-color" style="background:#ef4444"></span> Risk Cost</span>
+                <span class="legend-item"><span class="legend-color" style="background:var(--accent-orange)"></span> Total EUAC</span>
+                <span class="legend-item"><span class="legend-color" style="background:#252722"></span> Capital Rec. (CR)</span>
+                <span class="legend-item"><span class="legend-color" style="background:#777C54"></span> O&amp;M</span>
+                <span class="legend-item"><span class="legend-color" style="background:#B8473C"></span> Risk Cost</span>
               </div>
             </div>
             <div class="canvas-container">
@@ -1231,7 +1505,7 @@ canvas {
           <div class="glass-panel chart-card">
             <div class="chart-header">
               <div class="chart-title">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber-warning)" stroke-width="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--status-warning)" stroke-width="2">
                   <path d="M18 20V10"></path>
                   <path d="M12 20V4"></path>
                   <path d="M6 20v-6"></path>
@@ -1239,8 +1513,8 @@ canvas {
                 Defender Marginal Cost vs. Challenger EUAC
               </div>
               <div class="chart-legend">
-                <span class="legend-item"><span class="legend-color" style="background:var(--cyan-primary)"></span> Marginal Cost MC(t)</span>
-                <span class="legend-item"><span class="legend-color" style="background:var(--amber-warning)"></span> Challenger EUAC*</span>
+                <span class="legend-item"><span class="legend-color" style="background:#252722"></span> Marginal Cost MC(t)</span>
+                <span class="legend-item"><span class="legend-color" style="background:#777C54"></span> Challenger EUAC*</span>
               </div>
             </div>
             <div class="canvas-container">
@@ -1299,7 +1573,7 @@ canvas {
             <div class="glass-panel" style="padding: 22px; margin-bottom: 20px;">
               <div class="chart-header">
                 <div class="chart-title">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2">
                     <circle cx="12" cy="12" r="3"></circle>
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                   </svg>
@@ -1321,16 +1595,16 @@ canvas {
             <div class="glass-panel chart-card">
               <div class="chart-header">
                 <div class="chart-title">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 14 14"></polyline>
                   </svg>
                   Remaining Useful Life (RUL) Prognostics &amp; Confidence Band
                 </div>
                 <div class="chart-legend">
-                  <span class="legend-item"><span class="legend-color" style="background:#00f2fe"></span> P50 Expected</span>
-                  <span class="legend-item"><span class="legend-color" style="background:rgba(0,242,254,0.3)"></span> P10-P90 Confidence Cone</span>
-                  <span class="legend-item"><span class="legend-color" style="background:#ef4444"></span> 20% Critical Failure Threshold</span>
+                  <span class="legend-item"><span class="legend-color" style="background:var(--accent-orange)"></span> P50 Expected</span>
+                  <span class="legend-item"><span class="legend-color" style="background:rgba(198,93,53,0.22)"></span> P10-P90 Confidence Cone</span>
+                  <span class="legend-item"><span class="legend-color" style="background:#B8473C"></span> 20% Critical Failure Limit</span>
                 </div>
               </div>
               <div class="canvas-container">
@@ -1342,7 +1616,7 @@ canvas {
           <!-- Feature Attribution (XAI) Waterfall -->
           <div class="glass-panel xai-card">
             <div class="chart-title" style="margin-bottom: 12px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--violet-accent)" stroke-width="2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-olive)" stroke-width="2">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                 <polyline points="2 17 12 22 22 17"></polyline>
                 <polyline points="2 12 12 17 22 12"></polyline>
@@ -1356,14 +1630,14 @@ canvas {
               <!-- Dynamically populated -->
             </div>
 
-            <div style="background: rgba(255, 255, 255, 0.02); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-top: 24px;">
-              <div style="font-size: 0.76rem; font-weight: 700; color: var(--cyan-primary); text-transform: uppercase; margin-bottom: 6px;">
+            <div style="background: var(--bg-surface); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-top: 24px;">
+              <div style="font-size: 0.70rem; font-weight: 700; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; font-family: var(--font-mono);">
                 Physical Degradation Model
               </div>
               <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
                 Sensor inputs are weighted according to failure mode severity. Mechanical wear exhibits exponential damage accumulation:
                 <br>
-                <code style="color: var(--cyan-primary); font-family: var(--font-mono); font-size: 0.74rem;">
+                <code style="color: var(--accent-orange); font-family: var(--font-mono); font-size: 0.75rem;">
                   HI(t) = 100 &times; exp(-1.45 &times; &sum; w_j &times; [stress_j]^1.85)
                 </code>
               </p>
@@ -1378,26 +1652,26 @@ canvas {
           <!-- Conventional Fixed Strategy Card -->
           <div class="policy-card conventional">
             <div class="policy-header">
-              <div class="policy-title" style="color: var(--rose-danger)">Conventional Fixed Depreciation Policy</div>
-              <span class="status-pill" style="background: rgba(239,68,68,0.15); color: var(--rose-danger); border-color: rgba(239,68,68,0.3)">
+              <div class="policy-title" style="color: var(--status-critical)">Conventional Fixed Depreciation Policy</div>
+              <span class="status-pill" style="background: var(--status-critical-subtle); color: var(--status-critical); border-color: var(--status-critical-border)">
                 SUBOPTIMAL
               </span>
             </div>
             <ul class="feature-list">
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rose-danger)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-critical)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                 <span><strong>Rigid Time Horizon:</strong> Relies solely on book depreciation (MACRS or Straight-Line) and scheduled calendar years.</span>
               </li>
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rose-danger)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-critical)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                 <span><strong>Blind to Micro-Degradation:</strong> Cannot detect thermal shocks, cavitation, or lubrication failure until catastrophic breakdown occurs.</span>
               </li>
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rose-danger)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-critical)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                 <span><strong>Catastrophic Risk Exposure:</strong> Unplanned downtime penalties escalate lifecycle costs by 40% to 200%.</span>
               </li>
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rose-danger)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-critical)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                 <span><strong>Premature Scrapping:</strong> Healthy assets operating under gentle duty cycles are discarded prematurely, wasting valuable capital recovery life.</span>
               </li>
             </ul>
@@ -1406,26 +1680,26 @@ canvas {
           <!-- AI-Driven PdM Strategy Card -->
           <div class="policy-card pdm-ai">
             <div class="policy-header">
-              <div class="policy-title" style="color: var(--cyan-primary)">AI-Driven Condition-Based PdM Policy</div>
-              <span class="status-pill" style="background: rgba(0,242,254,0.15); color: var(--cyan-primary); border-color: rgba(0,242,254,0.3)">
+              <div class="policy-title" style="color: var(--text-main)">AI-Driven Condition-Based PdM Policy</div>
+              <span class="status-pill" style="background: var(--accent-orange-subtle); color: var(--accent-orange); border-color: var(--accent-orange-border)">
                 OPTIMAL
               </span>
             </div>
             <ul class="feature-list">
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-positive)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span><strong>Real-Time Prognostic Health:</strong> Evaluates vibration, acoustic, and thermal telemetry dynamically into a composite Health Index.</span>
               </li>
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Risk-Adjusted Marginal Cost:</strong> Quantifies time-varying Weibull hazard &amp; downtime risk directly within the Defender marginal cost: <code style="color:var(--cyan-primary)">MC_t = &Delta;S + i&middot;S + O&amp;M + C_risk</code>.</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-positive)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Risk-Adjusted Marginal Cost:</strong> Quantifies time-varying Weibull hazard &amp; downtime risk directly within the Defender marginal cost: <code style="color:var(--accent-orange)">MC_t = &Delta;S + i&middot;S + O&amp;M + C_risk</code>.</span>
               </li>
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-positive)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span><strong>Precision Replacement Timing:</strong> Procures replacement within optimal lead-time window, eliminating emergency outage costs while capturing maximal salvage value.</span>
               </li>
               <li>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--status-positive)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span><strong>Significant Capital &amp; Energy ROI:</strong> Seamlessly transfers operation to high-efficiency Challenger, securing up to 60%+ lifecycle savings.</span>
               </li>
             </ul>
@@ -1436,7 +1710,7 @@ canvas {
         <div class="glass-panel chart-card">
           <div class="chart-header">
             <div class="chart-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-success)" stroke-width="2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--status-positive)" stroke-width="2">
                 <line x1="18" y1="20" x2="18" y2="10"></line>
                 <line x1="12" y1="20" x2="12" y2="4"></line>
                 <line x1="6" y1="20" x2="6" y2="14"></line>
@@ -1444,8 +1718,8 @@ canvas {
               Annual Cash Outflow Comparison: Conventional vs. AI-PdM Strategy
             </div>
             <div class="chart-legend">
-              <span class="legend-item"><span class="legend-color" style="background:rgba(239,68,68,0.7)"></span> Conventional (Unmonitored)</span>
-              <span class="legend-item"><span class="legend-color" style="background:#00f2fe"></span> AI-PdM Condition-Based</span>
+              <span class="legend-item"><span class="legend-color" style="background:#B8473C"></span> Conventional (Unmonitored)</span>
+              <span class="legend-item"><span class="legend-color" style="background:#777C54"></span> AI-PdM Condition-Based</span>
             </div>
           </div>
           <div class="canvas-container">
@@ -1458,7 +1732,7 @@ canvas {
       <div class="tab-pane" id="tab-sensitivity">
         <div class="glass-panel" style="padding: 24px;">
           <div class="chart-title" style="margin-bottom: 12px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-primary)" stroke-width="2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2">
               <circle cx="12" cy="12" r="3"></circle>
               <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
             </svg>
@@ -1825,27 +2099,27 @@ const EEFMSimulator = (function() {
     }
 
     let status = "HEALTHY";
-    let status_color = "#10b981";
+    let status_color = "#387653";
     let severity_desc = "Optimal operating state with negligible wear accumulation.";
 
     if (hi >= 85.0) {
       status = "HEALTHY";
-      status_color = "#10b981";
+      status_color = "#387653";
     } else if (hi >= 70.0) {
       status = "NORMAL_WEAR";
-      status_color = "#06b6d4";
+      status_color = "#777C54";
       severity_desc = "Standard progressive wear within engineering tolerances.";
     } else if (hi >= 50.0) {
       status = "INCIPIENT_FAULT";
-      status_color = "#f59e0b";
+      status_color = "#C18A35";
       severity_desc = "Detectable sub-surface degradation; thermal/vibrational anomaly.";
     } else if (hi >= 30.0) {
       status = "SEVERE_DEGRADATION";
-      status_color = "#f97316";
+      status_color = "#C65D35";
       severity_desc = "Accelerated wear; imminent danger of cascading damage.";
     } else {
       status = "CRITICAL_IMMINENT_FAILURE";
-      status_color = "#ef4444";
+      status_color = "#B8473C";
       severity_desc = "Extreme failure probability; immediate economic and physical hazard.";
     }
 
@@ -2181,12 +2455,13 @@ const EEFMSimulator = (function() {
   <script>
 /**
  * Interactive Canvas-based Chart Rendering Engine for EEFM Decision Tool.
- * Provides high-DPI rendering, anti-aliased curves, glowing accents, and tooltips.
+ * Theme: Industrial Editorial + Financial Intelligence
+ * Palette: Charcoal (#252722), Burnt Orange (#C65D35), Olive Green (#777C54), Warm Gray (#DEDCD4), Brick Red (#B8473C)
  */
 
 const EEFMCharts = (function() {
 
-  // Helper to setup retina-sharp canvas
+  // Helper to setup high-DPI retina-sharp canvas
   function setupCanvas(canvas) {
     if (!canvas) return null;
     const dpr = window.devicePixelRatio || 1;
@@ -2209,13 +2484,12 @@ const EEFMCharts = (function() {
     const { ctx, width, height } = setup;
 
     ctx.clearRect(0, 0, width, height);
-
     if (!schedule || schedule.length === 0) return;
 
-    const padLeft = 65;
+    const padLeft = 70;
     const padRight = 30;
-    const padTop = 30;
-    const padBottom = 40;
+    const padTop = 32;
+    const padBottom = 38;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
 
@@ -2228,10 +2502,10 @@ const EEFMCharts = (function() {
     if (maxVal === 0) maxVal = 100000;
 
     // Draw horizontal grid lines & Y-axis labels
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     const steps = 5;
@@ -2254,13 +2528,15 @@ const EEFMCharts = (function() {
 
     // X-axis labels
     ctx.textAlign = "center";
+    ctx.fillStyle = "#77796F";
+    ctx.font = "10px 'JetBrains Mono', monospace";
     schedule.forEach((d, i) => {
       const x = getX(i);
       ctx.fillText(`Yr ${d.keep_years}`, x, height - padBottom + 18);
     });
 
     // Helper to draw smooth series
-    function drawSeries(key, color, strokeWidth = 2, dashed = false) {
+    function drawSeries(key, color, strokeWidth = 1.8, dashed = false) {
       ctx.beginPath();
       ctx.strokeStyle = color;
       ctx.lineWidth = strokeWidth;
@@ -2276,30 +2552,27 @@ const EEFMCharts = (function() {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Draw point markers
+      // Point markers
       schedule.forEach((d, i) => {
         const x = getX(i);
         const y = getY(d[key]);
         ctx.beginPath();
-        ctx.arc(x, y, strokeWidth > 2 ? 4 : 2.5, 0, Math.PI * 2);
+        ctx.arc(x, y, strokeWidth > 2.5 ? 4.5 : 3, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.fill();
-        ctx.strokeStyle = "#070b14";
+        ctx.strokeStyle = "#FFFFFF";
         ctx.lineWidth = 1.5;
         ctx.stroke();
       });
     }
 
-    // Draw individual components
-    drawSeries("capital_recovery_cr", "rgba(59, 130, 246, 0.75)", 1.5, true);  // Blue: CR
-    drawSeries("annualized_om", "rgba(16, 185, 129, 0.75)", 1.5, true);        // Green: O&M
-    drawSeries("annualized_risk", "rgba(239, 68, 68, 0.75)", 1.5, true);      // Red: Risk
+    // Individual component curves (Restrained industrial palette)
+    drawSeries("capital_recovery_cr", "#252722", 1.8, true);   // Charcoal: Capital Recovery
+    drawSeries("annualized_om", "#777C54", 1.8, true);          // Olive Green: O&M
+    drawSeries("annualized_risk", "#B8473C", 1.8, true);        // Brick Red: Risk Cost
 
-    // Draw Total EUAC curve (Dominant Glowing Cyan)
-    ctx.shadowColor = "rgba(0, 242, 254, 0.5)";
-    ctx.shadowBlur = 8;
-    drawSeries("total_euac", "#00f2fe", 3.2, false);
-    ctx.shadowBlur = 0;
+    // Total EUAC curve (Dominant Burnt Orange Accent)
+    drawSeries("total_euac", "#C65D35", 3.0, false);
 
     // Highlight minimum EUAC point
     let minIdx = 0;
@@ -2316,18 +2589,19 @@ const EEFMCharts = (function() {
 
     // Draw minimum indicator ring
     ctx.beginPath();
-    ctx.arc(optX, optY, 7, 0, Math.PI * 2);
-    ctx.fillStyle = "#00f2fe";
+    ctx.arc(optX, optY, 6.5, 0, Math.PI * 2);
+    ctx.fillStyle = "#C65D35";
     ctx.fill();
     ctx.beginPath();
-    ctx.arc(optX, optY, 11, 0, Math.PI * 2);
-    ctx.strokeStyle = "rgba(0, 242, 254, 0.6)";
-    ctx.lineWidth = 2;
+    ctx.arc(optX, optY, 10, 0, Math.PI * 2);
+    ctx.strokeStyle = "rgba(198, 93, 53, 0.4)";
+    ctx.lineWidth = 1.8;
     ctx.stroke();
 
-    ctx.fillStyle = "#00f2fe";
-    ctx.font = "bold 10px 'Outfit', sans-serif";
-    ctx.fillText(`Min EUAC: $${minVal.toLocaleString()}`, optX, optY - 14);
+    ctx.fillStyle = "#252722";
+    ctx.font = "bold 10px 'JetBrains Mono', monospace";
+    ctx.textAlign = "center";
+    ctx.fillText(`MIN EUAC: $${minVal.toLocaleString()}`, optX, optY - 14);
   }
 
   // 2. Marginal Cost (Defender) vs Challenger EUAC Chart
@@ -2340,10 +2614,10 @@ const EEFMCharts = (function() {
     ctx.clearRect(0, 0, width, height);
     if (!schedule || schedule.length === 0) return;
 
-    const padLeft = 65;
+    const padLeft = 70;
     const padRight = 30;
-    const padTop = 30;
-    const padBottom = 40;
+    const padTop = 32;
+    const padBottom = 38;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
 
@@ -2351,11 +2625,11 @@ const EEFMCharts = (function() {
     maxVal = Math.ceil(maxVal * 1.1 / 10000) * 10000;
     if (maxVal === 0) maxVal = 100000;
 
-    // Grid lines
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    // Grid lines & Y-axis labels
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     const steps = 5;
@@ -2376,35 +2650,37 @@ const EEFMCharts = (function() {
 
     // X Labels
     ctx.textAlign = "center";
+    ctx.fillStyle = "#77796F";
+    ctx.font = "10px 'JetBrains Mono', monospace";
     schedule.forEach((d, i) => {
       ctx.fillText(`Yr ${d.keep_years}`, getX(i), height - padBottom + 18);
     });
 
-    // Horizontal Challenger EUAC line (Gold / Amber dashed)
+    // Horizontal Challenger EUAC line (Olive Green / Amber benchmark dashed)
     const challY = getY(challengerEUAC);
     ctx.beginPath();
-    ctx.strokeStyle = "#f59e0b";
-    ctx.lineWidth = 2.5;
-    ctx.setLineDash([6, 4]);
+    ctx.strokeStyle = "#777C54";
+    ctx.lineWidth = 2.0;
+    ctx.setLineDash([5, 4]);
     ctx.moveTo(padLeft, challY);
     ctx.lineTo(width - padRight, challY);
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#f59e0b";
+    ctx.fillStyle = "#777C54";
     ctx.font = "bold 10px 'JetBrains Mono', monospace";
     ctx.textAlign = "right";
-    ctx.fillText(`Challenger Min EUAC: $${challengerEUAC.toLocaleString()}`, width - padRight, challY - 8);
+    ctx.fillText(`CHALLENGER MIN EUAC: $${challengerEUAC.toLocaleString()}`, width - padRight, challY - 8);
 
-    // Defender Marginal Cost Line (Cyan rising to Ruby)
+    // Defender Marginal Cost Line (Charcoal rising to Burnt Orange & Brick Red)
     const grad = ctx.createLinearGradient(padLeft, 0, width - padRight, 0);
-    grad.addColorStop(0, "#00f2fe");
-    grad.addColorStop(0.6, "#f59e0b");
-    grad.addColorStop(1, "#ef4444");
+    grad.addColorStop(0, "#252722");
+    grad.addColorStop(0.55, "#C65D35");
+    grad.addColorStop(1, "#B8473C");
 
     ctx.beginPath();
     ctx.strokeStyle = grad;
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2.8;
     schedule.forEach((d, i) => {
       const x = getX(i);
       const y = getY(d.marginal_cost);
@@ -2421,9 +2697,9 @@ const EEFMCharts = (function() {
 
       ctx.beginPath();
       ctx.arc(x, y, 4.5, 0, Math.PI * 2);
-      ctx.fillStyle = isBreached ? "#ef4444" : "#00f2fe";
+      ctx.fillStyle = isBreached ? "#B8473C" : "#252722";
       ctx.fill();
-      ctx.strokeStyle = "#070b14";
+      ctx.strokeStyle = "#FFFFFF";
       ctx.lineWidth = 2;
       ctx.stroke();
     });
@@ -2432,9 +2708,8 @@ const EEFMCharts = (function() {
     if (crossoverYear !== null && crossoverYear <= schedule.length) {
       const crossIdx = crossoverYear - 1;
       const crossX = getX(crossIdx);
-      const crossY = getY(schedule[crossIdx].marginal_cost);
 
-      ctx.strokeStyle = "rgba(239, 68, 68, 0.4)";
+      ctx.strokeStyle = "rgba(184, 71, 60, 0.45)";
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
       ctx.moveTo(crossX, padTop);
@@ -2442,10 +2717,10 @@ const EEFMCharts = (function() {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = "#ef4444";
-      ctx.font = "bold 10px 'Outfit', sans-serif";
+      ctx.fillStyle = "#B8473C";
+      ctx.font = "bold 9px 'JetBrains Mono', monospace";
       ctx.textAlign = "center";
-      ctx.fillText(`REPLACE CROSSOVER`, crossX, padTop - 10);
+      ctx.fillText(`REPLACE CROSSOVER (YR ${crossoverYear})`, crossX, padTop - 10);
     }
   }
 
@@ -2459,9 +2734,9 @@ const EEFMCharts = (function() {
     ctx.clearRect(0, 0, width, height);
     if (!trajectory || trajectory.length === 0) return;
 
-    const padLeft = 50;
+    const padLeft = 55;
     const padRight = 30;
-    const padTop = 25;
+    const padTop = 28;
     const padBottom = 35;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
@@ -2472,10 +2747,10 @@ const EEFMCharts = (function() {
     function getY(hi) { return padTop + chartH - (hi / 100.0) * chartH; }
 
     // Grid lines for HI (0 to 100%)
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     [0, 20, 50, 75, 100].forEach(hi => {
@@ -2487,10 +2762,10 @@ const EEFMCharts = (function() {
       ctx.fillText(`${hi}%`, padLeft - 8, y + 3);
     });
 
-    // Critical Threshold Line at 20%
+    // Critical Threshold Line at 20% (Brick Red)
     const threshY = getY(failureThreshold);
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(239, 68, 68, 0.7)";
+    ctx.strokeStyle = "#B8473C";
     ctx.lineWidth = 1.5;
     ctx.setLineDash([4, 4]);
     ctx.moveTo(padLeft, threshY);
@@ -2498,10 +2773,10 @@ const EEFMCharts = (function() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#ef4444";
+    ctx.fillStyle = "#B8473C";
     ctx.textAlign = "right";
-    ctx.font = "9px 'JetBrains Mono', monospace";
-    ctx.fillText("Failure Boundary (20%)", width - padRight, threshY - 6);
+    ctx.font = "bold 9px 'JetBrains Mono', monospace";
+    ctx.fillText("CRITICAL FAILURE LIMIT (20%)", width - padRight, threshY - 6);
 
     // Draw shaded confidence cone (P10 to P90)
     ctx.beginPath();
@@ -2518,12 +2793,12 @@ const EEFMCharts = (function() {
       ctx.lineTo(x, y);
     }
     ctx.closePath();
-    ctx.fillStyle = "rgba(0, 242, 254, 0.12)";
+    ctx.fillStyle = "rgba(198, 93, 53, 0.09)";
     ctx.fill();
 
-    // Expected Trajectory Line (P50)
+    // Expected Trajectory Line (P50 in Burnt Orange)
     ctx.beginPath();
-    ctx.strokeStyle = "#00f2fe";
+    ctx.strokeStyle = "#C65D35";
     ctx.lineWidth = 2.5;
     trajectory.forEach((d, i) => {
       const x = getX(d.month_offset);
@@ -2533,9 +2808,22 @@ const EEFMCharts = (function() {
     });
     ctx.stroke();
 
+    // Point markers on P50
+    trajectory.forEach((d, i) => {
+      if (i % 2 === 0 || i === trajectory.length - 1) {
+        const x = getX(d.month_offset);
+        const y = getY(d.hi_p50);
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = "#C65D35";
+        ctx.fill();
+      }
+    });
+
     // X Axis Months
     ctx.textAlign = "center";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
+    ctx.font = "10px 'JetBrains Mono', monospace";
     trajectory.forEach((d, i) => {
       if (i % 2 === 0 || i === trajectory.length - 1) {
         ctx.fillText(`+${d.month_offset}m`, getX(d.month_offset), height - padBottom + 16);
@@ -2552,9 +2840,9 @@ const EEFMCharts = (function() {
 
     ctx.clearRect(0, 0, width, height);
 
-    const padLeft = 65;
-    const padRight = 20;
-    const padTop = 25;
+    const padLeft = 70;
+    const padRight = 24;
+    const padTop = 28;
     const padBottom = 35;
     const chartW = width - padLeft - padRight;
     const chartH = height - padTop - padBottom;
@@ -2567,11 +2855,11 @@ const EEFMCharts = (function() {
     maxCost = Math.ceil(maxCost * 1.2 / 20000) * 20000;
     if (maxCost === 0) maxCost = 100000;
 
-    // Grid
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+    // Grid lines & labels
+    ctx.strokeStyle = "rgba(37, 39, 34, 0.08)";
     ctx.lineWidth = 1;
     ctx.font = "10px 'JetBrains Mono', monospace";
-    ctx.fillStyle = "#64748b";
+    ctx.fillStyle = "#77796F";
     ctx.textAlign = "right";
 
     for (let i = 0; i <= 4; i++) {
@@ -2586,33 +2874,34 @@ const EEFMCharts = (function() {
     }
 
     const groupW = chartW / years;
-    const barW = Math.max(8, groupW * 0.35);
+    const barW = Math.max(8, groupW * 0.32);
 
     ctx.textAlign = "center";
+    ctx.font = "10px 'JetBrains Mono', monospace";
 
     for (let i = 0; i < years; i++) {
       const groupX = padLeft + i * groupW + groupW / 2;
       
-      // Conventional Bar (Muted Red/Slate)
+      // Conventional Bar (Muted Brick Red)
       const convCost = convSchedule[i].total_annual_cost;
       const convH = (convCost / maxCost) * chartH;
       const convX = groupX - barW - 2;
       const convY = padTop + chartH - convH;
 
-      ctx.fillStyle = "rgba(239, 68, 68, 0.65)";
+      ctx.fillStyle = "#B8473C";
       ctx.fillRect(convX, convY, barW, convH);
 
-      // AI-PdM Bar (Cyan/Emerald)
+      // AI-PdM Bar (Olive Green / Charcoal)
       const pdmCost = pdmSchedule[i].om_cost + pdmSchedule[i].risk_cost * 0.2;
       const pdmH = (pdmCost / maxCost) * chartH;
       const pdmX = groupX + 2;
       const pdmY = padTop + chartH - pdmH;
 
-      ctx.fillStyle = "#00f2fe";
+      ctx.fillStyle = "#777C54";
       ctx.fillRect(pdmX, pdmY, barW, pdmH);
 
-      // Label
-      ctx.fillStyle = "#64748b";
+      // Year Label
+      ctx.fillStyle = "#77796F";
       ctx.fillText(`Y${i + 1}`, groupX, height - padBottom + 16);
     }
   }
@@ -2991,14 +3280,14 @@ const EEFMCharts = (function() {
 
       tr.innerHTML = `
         <td><strong>Yr ${row.keep_years}</strong> (${row.projected_age} yrs)</td>
-        <td><span style="color:${row.health_index < 30 ? 'var(--rose-danger)' : row.health_index < 60 ? 'var(--amber-warning)' : 'var(--cyan-primary)'}">${row.health_index}%</span></td>
+        <td><span style="color:${row.health_index < 30 ? 'var(--status-critical)' : row.health_index < 60 ? 'var(--status-warning)' : 'var(--status-positive)'}">${row.health_index}%</span></td>
         <td>${(row.failure_probability * 100).toFixed(1)}%</td>
         <td>$${row.salvage_value.toLocaleString()}</td>
         <td>$${row.capital_recovery_cr.toLocaleString()}</td>
         <td>$${row.om_cost.toLocaleString()}</td>
-        <td><span style="color:var(--rose-danger)">$${row.risk_cost.toLocaleString()}</span></td>
+        <td><span style="color:var(--status-critical)">$${row.risk_cost.toLocaleString()}</span></td>
         <td><strong>$${row.total_euac.toLocaleString()}</strong></td>
-        <td><span style="color:${row.marginal_cost > row.challenger_euac ? 'var(--rose-danger)' : 'var(--cyan-primary)'}; font-weight:700">$${row.marginal_cost.toLocaleString()}</span></td>
+        <td><span style="color:${row.marginal_cost > row.challenger_euac ? 'var(--status-critical)' : 'var(--text-main)'}; font-weight:700">$${row.marginal_cost.toLocaleString()}</span></td>
         <td>
           <span class="status-badge-inline ${row.defender_status === 'REPLACE' ? 'replace' : 'keep'}">
             ${row.defender_status}
@@ -3020,7 +3309,7 @@ const EEFMCharts = (function() {
       item.innerHTML = `
         <div class="attribution-header">
           <span>${attr.name} (${attr.current_value} ${attr.unit})</span>
-          <span style="font-weight:700; color:var(--cyan-primary)">${attr.contribution_pct}% Stress</span>
+          <span style="font-weight:700; color:var(--accent-orange); font-family:var(--font-mono);">${attr.contribution_pct}% Stress</span>
         </div>
         <div class="attribution-bar-track">
           <div class="attribution-bar-fill" style="width: ${Math.min(100, Math.max(5, attr.contribution_pct))}%;"></div>
@@ -3087,52 +3376,55 @@ const EEFMCharts = (function() {
     if (!res) return;
 
     elements.reportContent.innerHTML = `
-      <div style="padding: 10px 0; border-bottom: 1px solid var(--border-subtle); margin-bottom: 20px;">
-        <h2 style="font-family: var(--font-heading); color: #fff;">Asset Replacement Decision Audit Report</h2>
-        <p style="font-size: 0.85rem; color: var(--text-muted);">Generated by AI-Driven PdM Decision Support System &bull; EEFM Framework</p>
+      <div style="padding: 6px 0 16px 0; border-bottom: 1px solid var(--border-subtle); margin-bottom: 20px;">
+        <div style="font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent-orange); margin-bottom: 4px; font-family: var(--font-mono);">
+          TECHNICAL AUDIT &bull; ENGINEERING ECONOMICS &bull; EEFM FRAMEWORK
+        </div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.55rem; color: var(--text-main); margin-bottom: 4px;">Asset Replacement Decision Audit Report</h2>
+        <p style="font-size: 0.82rem; color: var(--text-muted);">Generated by Industrial Asset Intelligence Engine &bull; Deterministic &amp; Prognostic Valuation Model</p>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
-        <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase;">Evaluated Asset (Defender)</div>
-          <div style="font-size: 1.1rem; font-weight: 700; color: #fff;">${res.asset_name}</div>
-          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">
-            Current Age: ${res.economic_parameters.current_age_years} yrs &bull; Design Life: ${res.economic_parameters.design_life_years} yrs &bull; Initial Cost: $${res.economic_parameters.initial_capital_cost.toLocaleString()}
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 16px; border-radius: var(--radius-sm);">
+          <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">Evaluated Asset (Defender)</div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); font-family: var(--font-heading); margin-top: 2px;">${res.asset_name}</div>
+          <div style="font-size: 0.80rem; color: var(--text-muted); margin-top: 6px; font-family: var(--font-mono);">
+            Age: ${res.economic_parameters.current_age_years} yrs &bull; Design Life: ${res.economic_parameters.design_life_years} yrs &bull; Initial Capex: $${res.economic_parameters.initial_capital_cost.toLocaleString()}
           </div>
         </div>
 
-        <div style="background: rgba(255,255,255,0.03); padding: 14px; border-radius: 8px;">
-          <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase;">Replacement Candidate (Challenger)</div>
-          <div style="font-size: 1.1rem; font-weight: 700; color: #fff;">${res.economic_parameters.challenger_name}</div>
-          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 16px; border-radius: var(--radius-sm);">
+          <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">Replacement Benchmark (Challenger)</div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); font-family: var(--font-heading); margin-top: 2px;">${res.economic_parameters.challenger_name}</div>
+          <div style="font-size: 0.80rem; color: var(--text-muted); margin-top: 6px; font-family: var(--font-mono);">
             Capex: $${res.economic_parameters.challenger_capital_cost.toLocaleString()} &bull; Min EUAC: $${res.economic_parameters.challenger_min_euac.toLocaleString()}/yr
           </div>
         </div>
       </div>
 
-      <div style="background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.3); padding: 18px; border-radius: 8px; margin-bottom: 20px;">
-        <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--cyan-primary);">Executive Advisory Decision</div>
-        <div style="font-size: 1.4rem; font-weight: 800; color: #fff; margin: 4px 0;">${res.recommendation.action}</div>
-        <div style="font-size: 0.95rem; font-weight: 600; color: var(--cyan-primary); margin-bottom: 8px;">Recommended Timing: ${res.recommendation.recommended_timing}</div>
-        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">${res.recommendation.rationale}</p>
+      <div style="background: var(--accent-orange-subtle); border-left: 4px solid var(--accent-orange); border-top: 1px solid var(--accent-orange-border); border-right: 1px solid var(--accent-orange-border); border-bottom: 1px solid var(--accent-orange-border); padding: 18px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+        <div style="font-size: 0.70rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.08em; color: var(--accent-orange); font-family: var(--font-mono);">Executive Advisory Recommendation</div>
+        <div style="font-size: 1.45rem; font-weight: 700; font-family: var(--font-serif); color: var(--text-main); margin: 4px 0 6px 0;">${res.recommendation.action}</div>
+        <div style="font-size: 0.88rem; font-weight: 600; color: var(--accent-orange); margin-bottom: 8px;">Target Horizon: ${res.recommendation.recommended_timing}</div>
+        <p style="font-size: 0.84rem; color: var(--text-main); line-height: 1.55;">${res.recommendation.rationale}</p>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px;">
-        <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px;">
-          <div style="font-size: 0.7rem; color: var(--text-dim);">Equipment Health</div>
-          <div style="font-size: 1.2rem; font-weight: 700; color: ${res.ai_health.status_color};">${res.ai_health.health_index}%</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px; border-radius: var(--radius-sm);">
+          <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Equipment Health</div>
+          <div style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-mono); color: ${res.ai_health.status_color}; margin-top: 2px;">${res.ai_health.health_index}%</div>
         </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px;">
-          <div style="font-size: 0.7rem; color: var(--text-dim);">RUL Horizon</div>
-          <div style="font-size: 1.2rem; font-weight: 700; color: #fff;">${res.rul_prognostics.rul_months_p50} mo</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px; border-radius: var(--radius-sm);">
+          <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">RUL Horizon</div>
+          <div style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-mono); color: var(--text-main); margin-top: 2px;">${res.rul_prognostics.rul_months_p50} mo</div>
         </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px;">
-          <div style="font-size: 0.7rem; color: var(--text-dim);">Net Lifecycle Savings</div>
-          <div style="font-size: 1.2rem; font-weight: 700; color: var(--emerald-success);">$${res.financial_summary.net_lifecycle_savings.toLocaleString()}</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px; border-radius: var(--radius-sm);">
+          <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Net Lifecycle Savings</div>
+          <div style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-mono); color: var(--status-positive); margin-top: 2px;">$${res.financial_summary.net_lifecycle_savings.toLocaleString()}</div>
         </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px;">
-          <div style="font-size: 0.7rem; color: var(--text-dim);">LCC Savings Ratio</div>
-          <div style="font-size: 1.2rem; font-weight: 700; color: var(--cyan-primary);">${res.financial_summary.savings_percentage}%</div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 12px; border-radius: var(--radius-sm);">
+          <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">LCC Savings Ratio</div>
+          <div style="font-size: 1.25rem; font-weight: 700; font-family: var(--font-mono); color: var(--accent-orange); margin-top: 2px;">${res.financial_summary.savings_percentage}%</div>
         </div>
       </div>
     `;
@@ -3159,6 +3451,5 @@ const EEFMCharts = (function() {
 })();
 
   </script>
-
 </body>
 </html>

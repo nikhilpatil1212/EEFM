@@ -84,23 +84,23 @@ class PdMAIEngine:
         # Determine degradation status
         if hi >= 85.0:
             status = "HEALTHY"
-            status_color = "#10b981"  # Emerald
+            status_color = "#387653"  # Deep green
             severity_desc = "Optimal operating state with negligible wear accumulation."
         elif hi >= 70.0:
             status = "NORMAL_WEAR"
-            status_color = "#06b6d4"  # Cyan
+            status_color = "#777C54"  # Olive green
             severity_desc = "Standard progressive wear within design engineering tolerances."
         elif hi >= 50.0:
             status = "INCIPIENT_FAULT"
-            status_color = "#f59e0b"  # Amber
+            status_color = "#C18A35"  # Muted amber
             severity_desc = "Detectable sub-surface degradation; thermal/vibrational anomalies detected."
         elif hi >= 30.0:
             status = "SEVERE_DEGRADATION"
-            status_color = "#f97316"  # Orange
+            status_color = "#C65D35"  # Burnt orange
             severity_desc = "Accelerated mechanical/thermal wear; high risk of cascading component failure."
         else:
             status = "CRITICAL_IMMINENT_FAILURE"
-            status_color = "#ef4444"  # Ruby Red
+            status_color = "#B8473C"  # Brick red
             severity_desc = "Extreme failure probability; immediate economic and physical hazard."
 
         return {
